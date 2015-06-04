@@ -12,7 +12,8 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
             $table->string('title', 255);
             $table->integer('category_id')->unsigned();
             $table->string('slug', 200)->unique();
@@ -20,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->text('content');
             $table->string('image', 255);
             $table->boolean('status')->default(true);
+            $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
@@ -32,8 +34,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        Schema::drop('posts');
     }
 }

@@ -12,10 +12,17 @@
 */
 
 $factory->define('App\User', function ($faker) {
-    return [
+   /* return [
         'name' => $faker->name,
         'email' => $faker->email,
         'password' => str_random(10),
+        'remember_token' => str_random(10),
+    ];*/
+
+    return [
+        'name' => 'Tieungao',
+        'email' => 'tieumaster@yahoo.com',
+        'password' => bcrypt('232323'),
         'remember_token' => str_random(10),
     ];
 });

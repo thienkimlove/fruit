@@ -3675,7 +3675,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laravel/framework/zipball/cb1faa5495c2f80ad38944c64bc8bfb67d4c74a7",
+            "url": "https://api.github.com/repos/laravel/framework/zipball/3c1d7672ec207fbd51f3757182a552f4ddd3836e",
             "reference": "cb1faa5495c2f80ad38944c64bc8bfb67d4c74a7",
             "shasum": ""
         },
@@ -3867,6 +3867,119 @@
             "dbal",
             "persistence",
             "queryobject"
+        ]
+    },
+    {
+        "name": "intervention/image",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Intervention/image.git",
+            "reference": "1f33a7c6c5847ddaa4c0c347be375d38ee4c2f43"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Intervention/image/zipball/1f33a7c6c5847ddaa4c0c347be375d38ee4c2f43",
+            "reference": "1f33a7c6c5847ddaa4c0c347be375d38ee4c2f43",
+            "shasum": ""
+        },
+        "require": {
+            "ext-fileinfo": "*",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.2",
+            "phpunit/phpunit": "3.*"
+        },
+        "suggest": {
+            "ext-gd": "to use GD library based image processing.",
+            "ext-imagick": "to use Imagick based image processing.",
+            "intervention/imagecache": "Caching extension for the Intervention Image library"
+        },
+        "time": "2015-05-14 08:43:38",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Intervention\\Image\\": "src/Intervention/Image"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Oliver Vogel",
+                "email": "oliver@olivervogel.net",
+                "homepage": "http://olivervogel.net/"
+            }
+        ],
+        "description": "Image handling and manipulation library with support for Laravel integration",
+        "homepage": "http://image.intervention.io/",
+        "keywords": [
+            "gd",
+            "image",
+            "imagick",
+            "laravel",
+            "thumbnail",
+            "watermark"
+        ]
+    },
+    {
+        "name": "intervention/imagecache",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Intervention/imagecache.git",
+            "reference": "27d2ee028672c13bedf896b4ca456b7c89d84086"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Intervention/imagecache/zipball/27d2ee028672c13bedf896b4ca456b7c89d84086",
+            "reference": "27d2ee028672c13bedf896b4ca456b7c89d84086",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/cache": "~4|~5",
+            "illuminate/filesystem": "~4|~5",
+            "intervention/image": "dev-master|~2,>=2.2.0",
+            "jeremeamia/superclosure": "~1|~2",
+            "php": ">=5.3.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "~0.9.2",
+            "phpunit/phpunit": "3.*"
+        },
+        "time": "2015-05-24 11:53:20",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Intervention\\Image\\": "src/Intervention/Image"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Oliver Vogel",
+                "email": "oliver@olivervogel.net",
+                "homepage": "http://olivervogel.net/"
+            }
+        ],
+        "description": "Caching extension for the Intervention Image Class",
+        "homepage": "http://image.intervention.io",
+        "keywords": [
+            "cache",
+            "gd",
+            "image",
+            "imagick",
+            "laravel"
         ]
     }
 ]

@@ -140,6 +140,7 @@ return [
         'Laracasts\Flash\FlashServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Intervention\Image\ImageServiceProvider',
 
 
         /*
@@ -199,7 +200,7 @@ return [
         'Flash' => 'Laracasts\Flash\Flash',
         'Form'=> 'Illuminate\Html\FormFacade', 
         'HTML'=> 'Illuminate\Html\HtmlFacade',
-
+        'Image' => 'Intervention\Image\Facades\Image',
     ],
 
 ];
