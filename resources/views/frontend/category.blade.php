@@ -14,11 +14,7 @@
     {{$category->desc}}
 </div>
 <!-- -->
-<div class="product-filter">
-    <div class="display"><b>Hiển thị:</b> Danh sách <b>/</b> <a onclick="display('grid');">Lưới</a></div>
 
-
-</div>
 
 <div class="product-list">
     @foreach ($products as $product)
