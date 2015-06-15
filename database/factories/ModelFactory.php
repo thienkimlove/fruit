@@ -26,3 +26,19 @@ $factory->define('App\User', function ($faker) {
         'remember_token' => str_random(10),
     ];
 });
+$factory->define('App\Category', function ($faker) {
+    return [
+        'title' => $faker->sentence,
+        'desc' => $faker->text,
+    ];
+});
+
+$factory->define('App\Post', function ($faker) {
+    return [
+        'title' => $faker->sentence,
+        'desc' => $faker->text,
+        'category_id' => $faker->numberBetween(2, 13),
+        'image' => 'default.jpg',
+        'content' => $faker->realText(300)
+    ];
+});

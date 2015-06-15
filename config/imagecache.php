@@ -51,9 +51,13 @@ return array(
     */
    
     'templates' => array(
-        'small' => 'Intervention\Image\Templates\Small',
-        'medium' => 'Intervention\Image\Templates\Medium',
-        'large' => 'Intervention\Image\Templates\Large',
+        'mini' => 'App\Invention\Mini',
+        'small' => 'App\Invention\Small',
+        'medium' => 'App\Invention\Medium',
+        'large' => 'App\Invention\Large',
+        'super' => 'App\Invention\Super',
+        'max' => 'App\Invention\Max',
+        'big' => 'App\Invention\Big',
     ),
 
     /*

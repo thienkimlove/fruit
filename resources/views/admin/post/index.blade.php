@@ -13,8 +13,10 @@
                                 <th>#</th>
                                 <th>Title</th>
                                 <th>Desc</th>
+                                <th>Price</th>
                                 <th>Image</th>
                                 <th>Category</th>
+                                <th>Home Slide</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -24,8 +26,10 @@
                                     <td>{{$post->id}}</td>
                                     <td><a href="{{url('posts/'. $post->id. '/edit')}}">{{$post->title}}</a></td>
                                     <td>{{$post->desc}}</td>
+                                    <td>{{$post->price}} VND</td>
                                     <td><img src="{{url('images/small/' . $post->image)}}" /></td>
                                     <td>{{$post->category->title}}</td>
+                                    <td>{{ ($post->home_slide) ? 'Yes' : 'No' }}</td>
 
                                     <td>
                                         {!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id]]) !!}

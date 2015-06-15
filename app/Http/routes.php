@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Support\Facades\App;
+
+Route::get('/', 'FrontendController@index');
 
 #Admin
 
@@ -34,3 +34,11 @@ Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
+Route::get('/{value}', function ($value) {
+    if (preg_match('/([a-z0-9\-]+)\.html/', $value, $matches)) {
+        return App::make('App\Http\Controllers\FrontendController')->details($matches[1]);
+    } else {
+        return App::make('App\Http\Controllers\FrontendController')->category($value);
+    }
+});

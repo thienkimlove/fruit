@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\CategoryRequest;
 
-class CategoriesController extends Controller
+class CategoriesController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -36,7 +36,14 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        Category::create($request->all());
+        $data = $request->all();
+
+        if ($request->file('image') && $request->file('image')->isValid()) {
+            $data['image'] = $this->saveImage($request->file('image'));
+        }
+
+        Category::create($data);
+
         flash('Success create category!', 'success');
         return redirect('categories');
     }
@@ -63,7 +70,11 @@ class CategoriesController extends Controller
     public function update($id, CategoryRequest $request)
     {
         $category = Category::findOrFail($id);
-        $category->update($request->all());
+        $data = $request->all();
+        if ($request->file('image') && $request->file('image')->isValid()) {
+            $data['image'] = $this->saveImage($request->file('image'), $category->image);
+        }
+        $category->update($data);
         flash('Success update category!', 'success');
         return redirect('categories');
     }
@@ -76,7 +87,11 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        Category::destroy($id);
+        $category = Category::findOrFail($id);
+        $category->delete($id);
+        if (file_exists(public_path('images/' . $category->image))) {
+            @unlink(public_path('images/' . $category->image));
+        }
         flash('Success delete category!', 'success');
         return redirect('categories');
     }

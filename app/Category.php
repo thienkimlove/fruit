@@ -4,7 +4,7 @@ namespace App;
 
 class Category extends BaseModel
 {
-    protected $fillable = ['title', 'desc'];
+    protected $fillable = ['title', 'desc', 'image'];
     
     /**
      * Relationships between categories and posts.
@@ -12,6 +12,6 @@ class Category extends BaseModel
      */
     public function posts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Post')->latest()->take(8)->get();
     }
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\PostRequest;
 use App\Post;
-use Intervention\Image\Facades\Image;
 
 class PostsController extends Controller
 {
@@ -40,6 +39,7 @@ class PostsController extends Controller
     public function store(PostRequest $request)
     {
         $data = $request->all();
+        $data['home_slide'] = (!empty($data['home_slide']) && $data['home_slide'] == 'on') ? true : false;
         if ($request->file('image') && $request->file('image')->isValid()) {
             $data['image'] = $this->saveImage($request->file('image'));
         }
@@ -73,7 +73,7 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $data = $request->all();
-
+        $data['home_slide'] = (!empty($data['home_slide']) && $data['home_slide'] == 'on') ? true : false;
         if ($request->file('image') && $request->file('image')->isValid()) {
             $data['image'] = $this->saveImage($request->file('image'), $post->image);
         }
@@ -98,23 +98,5 @@ class PostsController extends Controller
         }
         flash('Delete post success!', 'success');
         return redirect('posts');
-    }
-
-    /**
-     * Save images
-     * @param $file
-     * @param null $old
-     * @return string
-     * @internal param $request
-     */
-    protected function saveImage($file, $old = null)
-    {
-        $filename = md5(time()) . '.' . $file->getClientOriginalExtension();
-        Image::make($file->getRealPath())->save(public_path('images/'. $filename));
-
-        if ($old) {
-            @unlink(public_path('images/' .$old));
-        }
-        return $filename;
     }
 }

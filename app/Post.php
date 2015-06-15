@@ -4,7 +4,7 @@ namespace App;
 
 class Post extends BaseModel
 {
-    protected $fillable = ['title', 'desc', 'image', 'content', 'category_id'];
+    protected $fillable = ['title', 'desc', 'image', 'content', 'category_id', 'price', 'home_slide'];
 
     /**
      * Relationship between posts and categories.
